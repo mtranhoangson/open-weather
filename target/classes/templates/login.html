@@ -1,0 +1,35 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Login</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="text-center mt-5 mb-5">
+    </div>
+    <div class="text-center mt-5 mb-5">
+        <h2 class="form-signin-heading">Login</h2>
+    </div>
+    <div th:if="${param.error}" class="alert alert-danger">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success">
+        You have been logged out.
+    </div>
+    <form class="form-signin" method="POST" th:action="@{/login}">
+        <div class="form-group text-center row m-2">
+            <input type="email" id="username" name="username" class="form-control py-3 mb-3" placeholder="Email" required autofocus>
+            <input type="password" id="password" name="password" class="form-control py-3 mb-3" placeholder="Password" required>
+            <button class="btn btn-lg btn-primary btn-block py-3 w-100" type="submit">Login</button>
+        </div>
+        <div class="form-group row m-2 text-end">
+            <h5><a th:href="@{/register}">Sign Up</a></h5>
+        </div>
+    </form>
+</div>
+</body>
+</html>
